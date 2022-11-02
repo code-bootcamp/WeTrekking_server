@@ -1,0 +1,11 @@
+# 포스트맨에서 요청하는 방법(여러개)
+
+Headers => X
+
+Body => form-data
+operations     { "query": "mutation uploadFiles($files: [Upload!]!) { uploadFiles(files: $files) }", "variables": { "files": [null, null] } }
+map            { "0": ["variables.files.0"], "1": ["variables.files.1"] }
+0              [파일선택] 강아지.jpeg
+1              [파일선택] 강아지2.jpeg
+
+ `https://storage.googleapis.com/${process.env.STORAGE_BUCKET}/${el.filename}`,

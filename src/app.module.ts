@@ -1,15 +1,21 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { CrewBoardModule } from './apis/crewBoard/crewBoard.module';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CrewBoardModule } from './apis/crewBoards/crewBoard.module';
+import { ImageModule } from './apis/Images/image.module';
+// import { FileModule } from './apis/files/file.module';
 
 @Module({
   imports: [
+    // FileModule,
     CrewBoardModule,
+    ImageModule,
+    ConfigModule.forRoot(),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graghql/schema.gql',
