@@ -31,7 +31,6 @@ export class ImageService {
       type: 'crewBoard',
     });
     // const url = this.ImageRepository.save({ image });
-    console.log(url);
 
     return url.toString();
   }

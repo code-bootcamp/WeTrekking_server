@@ -11,8 +11,6 @@ export class FileService {
 
   async upload({ file, type }) {
     const waitedImages = await Promise.all(file);
-    console.log(waitedImages);
-    console.log('@@@@@@@@@');
 
     const storage = new Storage({
       projectId: process.env.STORAGE_PROJECT_ID,
