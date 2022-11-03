@@ -25,11 +25,21 @@ type User {
   point: Int!
 }
 
+type Image {
+  id: String!
+  url: String!
+  isMain: Boolean!
+  reviewBoardId: String!
+  crewBoardId: CrewBoard!
+}
+
 type Query {
   fetchCrewBoard(crewBoardId: String!): CrewBoard!
   fetchCrewBoards: [CrewBoard!]!
   fetchCrewBoardWithDelete: [CrewBoard!]!
   fetchUser(email: String!): User!
+  fetchCrewBoardImages: [Image!]!
+  fetchBoardImage(ImageId: String!): Image!
 }
 
 type Mutation {
@@ -40,7 +50,9 @@ type Mutation {
   updateUser(userId: String!, updateUserInput: UpdateUserInput!): User!
   deleteUser(userId: String!): Boolean!
   login(email: String!, password: String!): String!
+  logout: String!
   restoreAccessToken: String!
+  uploadCrewBoaredImage(image: [Upload!]!): String!
 }
 
 input CreateCrewBoardInput {
@@ -89,3 +101,6 @@ input UpdateUserInput {
   gender: String
   profile_img: String
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload

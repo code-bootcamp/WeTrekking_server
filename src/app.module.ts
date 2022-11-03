@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './apis/users/user.module';
 import { AuthModule } from './apis/auth/auth.module';
 import { ImageModule } from './apis/Images/image.module';
+import { RedisClientOptions } from 'redis';
+// import * as redisStore from 'cache-manager-redis-store';
 
 @Module({
   imports: [
@@ -33,6 +35,11 @@ import { ImageModule } from './apis/Images/image.module';
       synchronize: true,
       logging: true,
     }),
+    // CacheModule.register<RedisClientOptions>({
+    //   store: redisStore,
+    //   url: 'redis://myredis:6379',
+    //   isGlobal: true,
+    // }),
   ],
   controllers: [AppController],
   providers: [AppService],
