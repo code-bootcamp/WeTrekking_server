@@ -20,6 +20,11 @@ export class CrewBoardResolver {
     return this.crewBoardService.findAll();
   }
 
+  @Query(() => [[CrewBoard]])
+  fetchCrewBoardsTEST() {
+    return this.crewBoardService.findAll();
+  }
+
   @Query(() => [CrewBoard])
   fetchCrewBoardsWithDelete() {
     return this.crewBoardService.findAllWithDelete();
@@ -40,6 +45,13 @@ export class CrewBoardResolver {
 
   @Mutation(() => CrewBoard)
   createCrewBoard(
+    @Args('createCrewBoardInput') createCrewBoardInput: CreateCrewBoardInput,
+  ) {
+    return this.crewBoardService.create({ createCrewBoardInput });
+  }
+
+  @Mutation(() => CrewBoard)
+  createCrewBoardTEST(
     @Args('createCrewBoardInput') createCrewBoardInput: CreateCrewBoardInput,
   ) {
     return this.crewBoardService.create({ createCrewBoardInput });
