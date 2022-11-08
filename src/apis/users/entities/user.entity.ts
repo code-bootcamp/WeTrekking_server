@@ -1,9 +1,11 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { CrewBoard } from 'src/apis/crewBoards/entities/crewBoard.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -56,4 +58,7 @@ export class User {
 
   @DeleteDateColumn()
   deletedAt: Date;
+
+  // @ManyToMany(() => CrewBoard, (crewBoards) => crewBoards.users)
+  // crewBoards: CrewBoard[];
 }

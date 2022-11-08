@@ -28,4 +28,7 @@ export class CreateCrewBoardInput {
 
   @Field(() => Int)
   peoples: number;
+
+  // @Field(() => [String])
+  // user: string[];
 }

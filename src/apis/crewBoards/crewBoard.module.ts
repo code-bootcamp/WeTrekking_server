@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { User } from '../users/entities/user.entity';
 import { CrewBoardResolver } from './crewBoard.resolver';
 import { CrewBoardService } from './crewBoard.service';
 import { CrewBoard } from './entities/crewBoard.entity';
@@ -8,6 +9,7 @@ import { CrewBoard } from './entities/crewBoard.entity';
   imports: [
     TypeOrmModule.forFeature([
       CrewBoard, //
+      User,
     ]),
   ],
   providers: [

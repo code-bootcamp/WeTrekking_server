@@ -9,6 +9,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './apis/users/user.module';
 import { AuthModule } from './apis/auth/auth.module';
 import { ImageModule } from './apis/Images/image.module';
+import { CrewCommentModule } from './apis/crewComments/crewComment.module';
+import { ReviewCommentModule } from './apis/reviewComments/reviewComment.module';
 
 @Module({
   imports: [
@@ -16,6 +18,8 @@ import { ImageModule } from './apis/Images/image.module';
     UserModule,
     AuthModule,
     ImageModule,
+    CrewCommentModule,
+    ReviewCommentModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: 'src/commons/graghql/schema.gql',

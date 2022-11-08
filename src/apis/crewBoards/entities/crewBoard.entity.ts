@@ -1,9 +1,13 @@
 import { Field, Int, ObjectType } from '@nestjs/graphql';
+import { User } from 'src/apis/users/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
   //   ManyToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -59,9 +63,9 @@ export class CrewBoard {
   //   @Field(() => String)
   //   mountainId: string;
 
-  // @ManyToOne(()=>User)
-  // @Field(() => String)
-  // userId: string;
+  @ManyToOne(() => User)
+  @Field(() => String)
+  user: string;
 
   @CreateDateColumn()
   createdAt: Date;
@@ -71,4 +75,8 @@ export class CrewBoard {
 
   @DeleteDateColumn()
   deletedAt: Date;
+
+  // @JoinTable()
+  // @ManyToMany(() => User, (users) => users.crewBoards)
+  // users: CrewBoard[];
 }
